@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CAPTCHA Test</title>
+    <style>
+      /* Very basic styling to mimic typical CAPTCHA forms */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .captcha-container {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      .captcha-image {
+        margin-bottom: 1em;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="captcha-container">
+      <h1>CAPTCHA Test</h1>
+      <p>Please enter the text shown in the image below:</p>
+      
+      <!-- The static CAPTCHA image -->
+      <img class="captcha-image" src="captcha.jpg" alt="CAPTCHA Image" width="200" height="60" />
+
+      <!-- 
+        We’ll send the form data via GET to validate.html.
+        The parameter name is "captchaInput", but you can choose any name. 
+      -->
+      <form action="validate.html" method="GET">
+        <label for="captchaInput">Enter CAPTCHA code:</label><br />
+        <input type="text" id="captchaInput" name="captchaInput" required />
+        <br><br>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Validating CAPTCHA</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .result-container {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      .win {
+        color: green;
+      }
+      .lost {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="result-container">
+      <h1>CAPTCHA Verification</h1>
+      <div id="resultText"></div>
+    </div>
+    
+    <script>
+      // 1. The correct code is fixed here
+      const CORRECT_CODE = "ABCD";
+      
+      // 2. Grab the 'captchaInput' param from the URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const userInput = urlParams.get("captchaInput") || "";
+
+      // 3. Find the element to show the result
+      const resultText = document.getElementById("resultText");
+
+      // 4. Compare the user input to the fixed code
+      if (userInput.toUpperCase() === CORRECT_CODE.toUpperCase()) {
+        resultText.innerHTML = `<p class="win">You win: ${userInput}</p>`;
+      } else {
+        resultText.innerHTML = `<p class="lost">You lost: ${userInput}</p>`;
+      }
+    </script>
+  </body>
+</html>
+
